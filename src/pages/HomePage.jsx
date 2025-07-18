@@ -1,7 +1,7 @@
-// src/pages/HomePage.jsx
+//removendo titulo
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import Filmes from '../components/Filmes'; // Seu componente de card de filme
+import Filmes from '../components/Filmes';
 
 const MoviesGrid = styled.div`
   display: flex;
@@ -30,7 +30,7 @@ function HomePage() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    // A URL REAL da API para obter a lista de filmes
+
     const API_URL = 'https://mock-api.driven.com.br/api/v8/cineflex/movies';
 
     fetch(API_URL)
@@ -48,9 +48,9 @@ function HomePage() {
         setError(err);
         setLoading(false);
         console.error("Erro ao buscar filmes:", err);
-        // Exibir uma mensagem de erro na UI
+
       });
-  }, []); // Array de dependências vazio para rodar apenas uma vez ao montar
+  }, []);
 
   if (loading) return <PageTitle>Carregando filmes...</PageTitle>;
   if (error) return <PageTitle>Erro ao carregar filmes: {error.message}. Por favor, tente novamente mais tarde.</PageTitle>;
